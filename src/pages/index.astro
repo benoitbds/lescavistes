@@ -1,0 +1,35 @@
+---
+const links = {
+  spotify: "https://open.spotify.com/album/XXXXXXXX",
+  deezer: "https://www.deezer.com/fr/album/XXXXXXXX",
+  youtube: "https://www.youtube-nocookie.com/embed/VIDEO_ID"
+};
+---
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Les Cavistes — EP</title>
+    <style>
+      :root { color-scheme: dark; }
+      body { margin:0; font:16px/1.5 system-ui; background:#000; color:#fff; }
+      .wrap { max-width:720px; margin:0 auto; padding:24px; }
+      .btns a { display:inline-block; margin:8px 8px 0 0; padding:10px 14px; border:1px solid #fff; text-decoration:none; color:#fff; }
+      iframe { width:100%; aspect-ratio:16/9; border:0; }
+      footer { opacity:.7; margin-top:24px; font-size:.9rem; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Les Cavistes — Musique de quartier</h1>
+      <p>Écoute l’EP partout, sans compte obligatoire.</p>
+      <div class="btns">
+        <a href={links.spotify} target="_blank" rel="noopener">Spotify</a>
+        <a href={links.deezer}  target="_blank" rel="noopener">Deezer</a>
+      </div>
+      <h2>Clip</h2>
+      <iframe src={links.youtube} allow="picture-in-picture; encrypted-media" allowfullscreen></iframe>
+      <footer>© Les Cavistes</footer>
+    </main>
+  </body>
+</html>
