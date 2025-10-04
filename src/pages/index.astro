@@ -19,85 +19,40 @@ const description = "Écoute l’EP, découvre le clip et nos actus. Musique de 
 
 /** À venir */
 const events = [
-  {
-    date: "2026-01-16",
-    title: "Cave Paul & Joseph — Redon",
-    city: "Redon",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephredon/" }],
-  },
-  {
-    date: "2026-01-23",
-    title: "Cave Paul & Joseph — Savenay",
-    city: "Savenay",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephsavenay/" }],
-  },
-  {
-    // mois seul = 1er par défaut, en attendant la date exacte
-    date: "2026-03-01",
-    title: "Do It Bar — Nantes",
-    city: "Nantes",
+  { date: "2026-01-16", title: "Cave Paul & Joseph — Redon", city: "Redon",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephredon/" }] },
+  { date: "2026-01-23", title: "Cave Paul & Joseph — Savenay", city: "Savenay",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephsavenay/" }] },
+  { date: "2026-03-01", title: "Do It Bar — Nantes", city: "Nantes",
     links: [
       { label: "Facebook", url: "https://www.facebook.com/p/Do-It-Bar-Nantes-61554562344720/" },
-      { label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" },
+      { label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }
     ],
-    note: "Date exacte en mars à confirmer",
-  },
-  {
-    date: "2026-05-26",
-    title: "Fête du producteur — EARL Philippe Doux (Touvois)",
-    city: "Touvois",
-    links: [{ label: "Facebook (Les Doux Légumes)", url: "https://www.facebook.com/61578303740806/" }],
-  },
+    note: "Date exacte en mars à confirmer" },
+  { date: "2026-05-26", title: "Fête du producteur — EARL Philippe Doux (Touvois)", city: "Touvois",
+    links: [{ label: "Facebook (Les Doux Légumes)", url: "https://www.facebook.com/61578303740806/" }] }
 ];
 
 /** Historique (sélection) */
 const past = [
-  {
-    date: "2025-09-23",
-    title: "Release Party — La Cour du Coin",
-    city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/lacourducoin/" }],
-  },
-  {
-    date: "2025-05-24",
-    title: "Fête du Lait de Mai",
-    city: "Nantes",
+  { date: "2025-09-23", title: "Release Party — La Cour du Coin", city: "Nantes",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/lacourducoin/" }] },
+  { date: "2025-05-24", title: "Fête du Lait de Mai", city: "Nantes",
     links: [
       { label: "Site officiel", url: "https://www.fetedulaitdemai.com/" },
-      { label: "Infos ville", url: "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" },
-    ],
-  },
-  {
-    date: "2025-03-06",
-    title: "Do It Bar",
-    city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }],
-  },
-  {
-    date: "2024-12-06",
-    title: "La Motte aux Cochons",
-    city: "Saint-Hilaire-de-Chaléons",
-    links: [{ label: "Facebook", url: "https://www.facebook.com/Motteauxcochons/" }],
-  },
-  {
-    date: "2024-09-29",
-    title: "BalaBala",
-    city: "Redon",
-    links: [{ label: "Facebook", url: "https://www.facebook.com/p/Balabala-100086272005102/" }],
-  },
-  {
-    date: "2024-09-28",
-    title: "Au Bon Muscadet",
-    city: "Redon",
-    links: [{ label: "Site", url: "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }],
-  },
-  {
-    date: "2024-03-29",
-    title: "Poum Poum T'chak",
-    city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/poum.poumtchak/" }],
-  },
-  { date: "2023-09-30", title: "Live à Redon", city: "Redon", note: "Lieu à préciser" },
+      { label: "Infos ville", url: "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" }
+    ] },
+  { date: "2025-03-06", title: "Do It Bar", city: "Nantes",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }] },
+  { date: "2024-12-06", title: "La Motte aux Cochons", city: "Saint-Hilaire-de-Chaléons",
+    links: [{ label: "Facebook", url: "https://www.facebook.com/Motteauxcochons/" }] },
+  { date: "2024-09-29", title: "BalaBala", city: "Redon",
+    links: [{ label: "Facebook", url: "https://www.facebook.com/p/Balabala-100086272005102/" }] },
+  { date: "2024-09-28", title: "Au Bon Muscadet", city: "Redon",
+    links: [{ label: "Site", url: "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }] },
+  { date: "2024-03-29", title: "Poum Poum T'chak", city: "Nantes",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/poum.poumtchak/" }] },
+  { date: "2023-09-30", title: "Live à Redon", city: "Redon", note: "Lieu à préciser" }
 ];
 
 /** Setlist (dernière) */
@@ -121,23 +76,18 @@ const setlist = [
     refs: [{ label: "Spotify", url: "https://open.spotify.com/track/0kJ3c642QEIm93Gg1fvRVy" }] },
   { title: "Ma casquette (Tout en buvant…)", artist: "Trad. breton/gallo — tour/andro", kind: "trad",
     refs: [{ label: "Dastum (notice)", url: "https://raddo-ethnodoc.com/raddo/document/112511" }] },
-
   // ORIGINAUX
   { title: "Détours", artist: "Les Cavistes", kind: "original" },
   { title: "Chanson conne", artist: "Les Cavistes", kind: "original" },
   { title: "Sabari", artist: "Les Cavistes", kind: "original" },
   { title: "J’quitte le quartier", artist: "Les Cavistes", kind: "original" },
   { title: "Vuelta al mar", artist: "Les Cavistes", kind: "original" },
-  { title: "Peut mieux faire", artist: "Les Cavistes", kind: "original" },
+  { title: "Peut mieux faire", artist: "Les Cavistes", kind: "original" }
 ];
 
 const formatDate = (iso) =>
-  new Intl.DateTimeFormat("fr-FR", {
-    weekday: "long",
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  }).format(new Date(iso));
+  new Intl.DateTimeFormat("fr-FR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" })
+    .format(new Date(iso));
 ---
 
 <html lang="fr">
@@ -164,7 +114,8 @@ const formatDate = (iso) =>
       :root { --max: 880px; }
       html, body { margin:0; padding:0; background:#fff; color:#111; }
       body {
-        font-family: "Segoe UI Variable Text", "Segoe UI", Inter, "Helvetica Neue", Arial, system-ui, -apple-system, "Liberation Sans", sans-serif;
+        font-family: "Segoe UI Variable Text", "Segoe UI", Inter, "Helvetica Neue",
+                     Arial, system-ui, -apple-system, "Liberation Sans", sans-serif;
         font-weight: 300; line-height: 1.55;
       }
       .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 40px; }
@@ -179,7 +130,9 @@ const formatDate = (iso) =>
 
       header h1 { font-weight: 300; font-size: clamp(28px, 4vw, 44px); margin: 0 0 10px; }
       header p { margin: 0 0 24px; opacity:.8; }
-      .btns { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 24px; }
+
+      /* Boutons */
+      .btns { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 0; }
       .btn { border: 1px solid #111; padding: 10px 14px; text-decoration: none; color:#111; display:inline-block; border-radius: 8px; transition: transform .05s ease-in-out; }
       .btn:hover { transform: translateY(-1px); }
 
@@ -203,11 +156,12 @@ const formatDate = (iso) =>
       .mini { font-size: .95rem; text-decoration: underline; }
       .note { opacity: .6; }
 
-      /* EP cover (correctif d'affichage) */
+      /* EP cover (grille + correctif) */
       .ep-hero { display:grid; grid-template-columns: 1fr; gap:18px; }
-      .ep-link { display:block; }                 /* le lien occupe la colonne */
+      .ep-link { display:block; }
       .ep-cover { display:block; width:100%; height:auto; max-width:none; border:1px solid #111; border-radius:10px; }
-      .ep-cta .btn { margin-right:10px; }
+      .ep-cta p { margin: 0 0 8px; }
+      .ep-cta .btns { margin-top: 6px; }
       @media (min-width:720px){
         .ep-hero { grid-template-columns: minmax(240px, 360px) 1fr; align-items:start; gap:20px; }
       }
@@ -235,14 +189,7 @@ const formatDate = (iso) =>
       <header>
         <h1>Les Cavistes</h1>
         <p class="muted">Musique de quartiers — Live EP</p>
-        <div class="btns">
-          <a class="btn" href={links.spotify} target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href={links.deezer} target="_blank" rel="noopener">Deezer</a>
-          <a class="btn" href={links.apple} target="_blank" rel="noopener">Apple&nbsp;Music</a>
-          <a class="btn" href={links.tidal} target="_blank" rel="noopener">Tidal</a>
-          <a class="btn" href={links.ytmusic} target="_blank" rel="noopener">YouTube&nbsp;Music</a>
-          <a class="btn" href={links.bandcamp} target="_blank" rel="noopener">Bandcamp</a>
-        </div>
+        <!-- (Liens plateformes supprimés ici pour éviter la redondance) -->
       </header>
 
       <!-- Sous-nav sticky (Option A) -->
@@ -256,7 +203,7 @@ const formatDate = (iso) =>
         <a href="/media">Médias</a>
       </nav>
 
-      <!-- Section EP mise en avant -->
+      <!-- Section EP : pochette + TOUTES les plateformes -->
       <section id="ep">
         <h2>Écouter l’EP</h2>
         <div class="ep-hero">
@@ -267,9 +214,11 @@ const formatDate = (iso) =>
             <p>Disponible partout. Supportez-nous sur Bandcamp ❤️</p>
             <div class="btns">
               <a class="btn" href={links.bandcamp} target="_blank" rel="noopener">Bandcamp</a>
-              <a class="btn" href={links.spotify} target="_blank" rel="noopener">Spotify</a>
-              <a class="btn" href={links.deezer} target="_blank" rel="noopener">Deezer</a>
-              <a class="btn" href={links.apple} target="_blank" rel="noopener">Apple&nbsp;Music</a>
+              <a class="btn" href={links.spotify}  target="_blank" rel="noopener">Spotify</a>
+              <a class="btn" href={links.deezer}   target="_blank" rel="noopener">Deezer</a>
+              <a class="btn" href={links.apple}    target="_blank" rel="noopener">Apple&nbsp;Music</a>
+              <a class="btn" href={links.tidal}    target="_blank" rel="noopener">Tidal</a>
+              <a class="btn" href={links.ytmusic}  target="_blank" rel="noopener">YouTube&nbsp;Music</a>
             </div>
           </div>
         </div>
@@ -301,14 +250,14 @@ const formatDate = (iso) =>
           </ul>
           <div class="btns" style="margin-top:16px">
             <a class="btn" href={links.instagram} target="_blank" rel="noopener">Instagram</a>
-            <a class="btn" href={links.facebook} target="_blank" rel="noopener">Facebook</a>
+            <a class="btn" href={links.facebook}  target="_blank" rel="noopener">Facebook</a>
           </div>
         </section>
 
         <section id="actus">
           <h2>Actus / Dates</h2>
           <ul class="events">
-            {events.map((ev) => (
+            {events.map(ev => (
               <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
                 <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
                 <span class="sep">·</span>
@@ -317,7 +266,7 @@ const formatDate = (iso) =>
                 <span itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <span itemprop="addressLocality">{ev.city}</span>
                 </span>
-                {ev.links?.map((l) => (
+                {ev.links?.map(l => (
                   <>
                     <span class="sep">·</span>
                     <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
@@ -332,33 +281,31 @@ const formatDate = (iso) =>
         <section id="historique">
           <h2>Historique (sélection)</h2>
           <ul class="events">
-            {[...past]
-              .sort((a, b) => new Date(b.date) - new Date(a.date))
-              .map((ev) => (
-                <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
-                  <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
-                  <span class="sep">·</span>
-                  <span itemprop="name">{ev.title}</span>
-                  <span class="sep">·</span>
-                  <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                    <span itemprop="addressLocality">{ev.city}</span>
-                  </span>
-                  {ev.links?.map((l) => (
-                    <>
-                      <span class="sep">·</span>
-                      <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
-                    </>
-                  ))}
-                  {ev.note && <span class="note"> — {ev.note}</span>}
-                </li>
-              ))}
+            {[...past].sort((a,b) => new Date(b.date) - new Date(a.date)).map(ev => (
+              <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
+                <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+                <span class="sep">·</span>
+                <span itemprop="name">{ev.title}</span>
+                <span class="sep">·</span>
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="addressLocality">{ev.city}</span>
+                </span>
+                {ev.links?.map(l => (
+                  <>
+                    <span class="sep">·</span>
+                    <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                  </>
+                ))}
+                {ev.note && <span class="note"> — {ev.note}</span>}
+              </li>
+            ))}
           </ul>
         </section>
 
         <section id="setlist">
           <h2>Setlist (dernière)</h2>
           <ul class="set">
-            {setlist.map((item) => (
+            {setlist.map(item => (
               <li>
                 <span class="title">{item.title}</span>
                 <span class="sep">·</span>
@@ -366,7 +313,7 @@ const formatDate = (iso) =>
                 <span class={"tag " + item.kind}>
                   {item.kind === "original" ? "Original" : item.kind === "trad" ? "Trad" : "Cover"}
                 </span>
-                {item.refs?.map((r) => (
+                {item.refs?.map(r => (
                   <>
                     <span class="sep">·</span>
                     <a class="mini" href={r.url} target="_blank" rel="noopener">{r.label}</a>
@@ -378,26 +325,21 @@ const formatDate = (iso) =>
         </section>
       </div>
 
-      <footer>
-        © Les Cavistes — Merci d’écouter et de partager.
-      </footer>
+      <footer>© Les Cavistes — Merci d’écouter et de partager.</footer>
 
-      <!-- Scrollspy minimal (active la sous-nav au scroll) -->
+      <!-- Scrollspy minimal -->
       <script is:inline>
         const navLinks = [...document.querySelectorAll('#subnav a')];
-        const map = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
-        const obs = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                navLinks.forEach((l) => l.classList.remove('active'));
-                map.get(e.target.id)?.classList.add('active');
-              }
-            });
-          },
-          { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 },
-        );
-        document.querySelectorAll('section[id]').forEach((s) => obs.observe(s));
+        const map = new Map(navLinks.map(a => [a.getAttribute('href').slice(1), a]));
+        const obs = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{
+            if(e.isIntersecting){
+              navLinks.forEach(l=>l.classList.remove('active'));
+              map.get(e.target.id)?.classList.add('active');
+            }
+          });
+        }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
+        document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
       </script>
     </main>
   </body>
