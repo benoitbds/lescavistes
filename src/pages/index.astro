@@ -8,10 +8,15 @@ const links = {
   bandcamp: "https://lescavistes.bandcamp.com/album/musique-de-quartiers",
   video: "https://www.youtube-nocookie.com/embed/MJlk_JYmVZI",
   facebook: "https://www.facebook.com/lescavistespehant",
-  instagram: "https://www.instagram.com/lescavistes.nantes/"
+  instagram: "https://www.instagram.com/lescavistes.nantes/",
 };
+
+// Pochette officielle servie par Bandcamp (cover hero)
+const coverSrc = "https://f4.bcbits.com/img/a2630947606_10.jpg";
+
 const title = "Les Cavistes — Musique de quartiers (Live EP)";
-const description = "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
+const description =
+  "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
 
 /** À venir */
 const events = [
@@ -19,13 +24,13 @@ const events = [
     date: "2026-01-16",
     title: "Cave Paul & Joseph — Redon",
     city: "Redon",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephredon/" }]
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephredon/" }],
   },
   {
     date: "2026-01-23",
     title: "Cave Paul & Joseph — Savenay",
     city: "Savenay",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephsavenay/" }]
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephsavenay/" }],
   },
   {
     // mois seul = 1er par défaut, en attendant la date exacte
@@ -34,16 +39,16 @@ const events = [
     city: "Nantes",
     links: [
       { label: "Facebook", url: "https://www.facebook.com/p/Do-It-Bar-Nantes-61554562344720/" },
-      { label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }
+      { label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" },
     ],
-    note: "Date exacte en mars à confirmer"
+    note: "Date exacte en mars à confirmer",
   },
   {
     date: "2026-05-26",
     title: "Fête du producteur — EARL Philippe Doux (Touvois)",
     city: "Touvois",
-    links: [{ label: "Facebook (Les Doux Légumes)", url: "https://www.facebook.com/61578303740806/" }]
-  }
+    links: [{ label: "Facebook (Les Doux Légumes)", url: "https://www.facebook.com/61578303740806/" }],
+  },
 ];
 
 /** Historique (sélection) */
@@ -52,7 +57,7 @@ const past = [
     date: "2025-09-23",
     title: "Release Party — La Cour du Coin",
     city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/lacourducoin/" }]
+    links: [{ label: "Instagram", url: "https://www.instagram.com/lacourducoin/" }],
   },
   {
     date: "2025-05-24",
@@ -60,52 +65,116 @@ const past = [
     city: "Nantes",
     links: [
       { label: "Site officiel", url: "https://www.fetedulaitdemai.com/" },
-      { label: "Infos ville", url: "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" }
-    ]
+      { label: "Infos ville", url: "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" },
+    ],
   },
   {
     date: "2025-03-06",
     title: "Do It Bar",
     city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }]
+    links: [{ label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }],
   },
   {
     date: "2024-12-06",
     title: "La Motte aux Cochons",
     city: "Saint-Hilaire-de-Chaléons",
-    links: [{ label: "Facebook", url: "https://www.facebook.com/Motteauxcochons/" }]
+    links: [{ label: "Facebook", url: "https://www.facebook.com/Motteauxcochons/" }],
   },
   {
     date: "2024-09-29",
     title: "BalaBala",
     city: "Redon",
-    links: [{ label: "Facebook", url: "https://www.facebook.com/p/Balabala-100086272005102/" }]
+    links: [{ label: "Facebook", url: "https://www.facebook.com/p/Balabala-100086272005102/" }],
   },
   {
     date: "2024-09-28",
     title: "Au Bon Muscadet",
     city: "Redon",
-    links: [
-      { label: "Site", url: "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }
-    ]
+    links: [{ label: "Site", url: "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }],
   },
   {
     date: "2024-03-29",
     title: "Poum Poum T'chak",
     city: "Nantes",
-    links: [{ label: "Instagram", url: "https://www.instagram.com/poum.poumtchak/" }]
+    links: [{ label: "Instagram", url: "https://www.instagram.com/poum.poumtchak/" }],
+  },
+  { date: "2023-09-30", title: "Live à Redon", city: "Redon", note: "Lieu à préciser" },
+];
+
+/** Setlist (dernière) */
+const setlist = [
+  // COVERS
+  {
+    title: "Pas à pas",
+    artist: "Paris Combo",
+    kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=27iRTjabbaw" }],
   },
   {
-    date: "2023-09-30",
-    title: "Live à Redon",
-    city: "Redon",
-    note: "Lieu à préciser"
-  }
+    title: "Canción del Mariachi (Morena de mi corazón)",
+    artist: "Los Lobos & Antonio Banderas",
+    kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/31JMAIQRX6GsMCdHbx9koh" }],
+  },
+  {
+    title: "Mona Lisa",
+    artist: "Booba feat. JSX",
+    kind: "cover",
+    refs: [{ label: "Paroles", url: "https://www.paroles.net/booba/paroles-mona-lisa" }],
+  },
+  {
+    title: "L'empire du côté obscur",
+    artist: "IAM",
+    kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=aLlCB5G02Ec" }],
+  },
+  {
+    title: "Résidents de la République",
+    artist: "Alain Bashung",
+    kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/2gDJaQEyYz566bsESGoQj2" }],
+  },
+  {
+    title: "Con toda palabra",
+    artist: "Lhasa de Sela",
+    kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/7mbk8uFl3hKKJpnpTD3r55" }],
+  },
+  {
+    title: "Tonton du bled",
+    artist: "113",
+    kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=9U7mG_HU3QM" }],
+  },
+  {
+    title: "Oualalaradime",
+    artist: "Zebda",
+    kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/0kJ3c642QEIm93Gg1fvRVy" }],
+  },
+  {
+    title: "Ma casquette (Tout en buvant…)",
+    artist: "Trad. breton/gallo — tour/andro",
+    kind: "trad",
+    refs: [{ label: "Dastum (notice)", url: "https://raddo-ethnodoc.com/raddo/document/112511" }],
+  },
+
+  // ORIGINAUX LES CAVISTES
+  { title: "Détours", artist: "Les Cavistes", kind: "original" },
+  { title: "Chanson conne", artist: "Les Cavistes", kind: "original" },
+  { title: "Sabari", artist: "Les Cavistes", kind: "original" },
+  { title: "J’quitte le quartier", artist: "Les Cavistes", kind: "original" },
+  { title: "Vuelta al mar", artist: "Les Cavistes", kind: "original" },
+  { title: "Peut mieux faire", artist: "Les Cavistes", kind: "original" },
 ];
 
 const formatDate = (iso) =>
-  new Intl.DateTimeFormat("fr-FR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" })
-    .format(new Date(iso));
+  new Intl.DateTimeFormat("fr-FR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(iso));
 ---
 
 <html lang="fr">
@@ -118,26 +187,31 @@ const formatDate = (iso) =>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={coverSrc} />
     <style>
       :root { --max: 880px; }
       html, body { margin:0; padding:0; background:#fff; color:#111; }
       body {
-        font-family: "Segoe UI Variable Text", "Segoe UI", Inter, "Helvetica Neue",
-                     Arial, system-ui, -apple-system, "Liberation Sans", sans-serif;
-        font-weight: 300; /* rendu light sur Windows */
-        line-height: 1.55;
+        font-family: "Segoe UI Variable Text", "Segoe UI", Inter, "Helvetica Neue", Arial, system-ui, -apple-system, "Liberation Sans", sans-serif;
+        font-weight: 300; line-height: 1.55;
       }
       .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 40px; }
-      .topnav { display:flex; gap:14px; margin: 0 0 16px; }
+
+      /* Nav principale & sous-nav */
+      .topnav { display:flex; gap:14px; margin: 0 0 8px; }
       .topnav a { color:#111; text-decoration: underline; }
+      .subnav { position: sticky; top: 0; background:#fff; padding:10px 0; gap:12px; display:flex; flex-wrap:wrap; border-bottom:1px solid #1112; z-index:10; }
+      .subnav a { text-decoration:none; color:#111; padding:8px 10px; border-radius:8px; }
+      .subnav a.active { background:#111; color:#fff; }
+      :target { scroll-margin-top: 64px; } /* ancre sous la sous-nav */
+
       header h1 { font-weight: 300; font-size: clamp(28px, 4vw, 44px); margin: 0 0 10px; }
       header p { margin: 0 0 24px; opacity:.8; }
       .btns { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 24px; }
-      .btn {
-        border: 1px solid #111; padding: 10px 14px; text-decoration: none; color:#111;
-        display:inline-block; border-radius: 8px; transition: transform .05s ease-in-out;
-      }
+      .btn { border: 1px solid #111; padding: 10px 14px; text-decoration: none; color:#111; display:inline-block; border-radius: 8px; transition: transform .05s ease-in-out; }
       .btn:hover { transform: translateY(-1px); }
+
+      /* Grilles & sections */
       .grid { display:grid; grid-template-columns: 1fr; gap: 24px; }
       @media (min-width:720px) { .grid { grid-template-columns: 1fr 1fr; align-items:start; } }
       iframe { width:100%; aspect-ratio:16/9; border: 1px solid #111; border-radius: 10px; }
@@ -156,6 +230,24 @@ const formatDate = (iso) =>
       .sep { opacity: .5; padding: 0 6px; }
       .mini { font-size: .95rem; text-decoration: underline; }
       .note { opacity: .6; }
+
+      /* EP cover */
+      .ep-hero { display:grid; grid-template-columns: 1fr; gap:18px; }
+      .ep-cover { max-width: 520px; border:1px solid #111; border-radius:10px; }
+      .ep-cta .btn { margin-right:10px; }
+      @media (min-width:720px){ .ep-hero { grid-template-columns: 360px 1fr; align-items:start; } }
+
+      /* Setlist */
+      #setlist { margin-top: 28px; }
+      .set { list-style:none; padding:0; margin:0; }
+      .set li { padding:10px 0; border-top:1px solid #1112; }
+      .set li:first-child { border-top:0; }
+      .title { font-weight:300; }
+      .artist { opacity:.85; }
+      .tag { margin-left:8px; padding:2px 8px; border:1px solid #111; border-radius:999px; font-size:.8rem; }
+      .tag.original { background:#111; color:#fff; }
+      .tag.cover { background:#fff; color:#111; }
+      .tag.trad { background:#fff; color:#111; border-style:dashed; }
     </style>
   </head>
   <body>
@@ -178,8 +270,38 @@ const formatDate = (iso) =>
         </div>
       </header>
 
+      <!-- Sous-nav sticky (Option A) -->
+      <nav class="subnav" id="subnav">
+        <a href="#ep">EP</a>
+        <a href="#clip">Clip</a>
+        <a href="#bio">Bio</a>
+        <a href="#actus">Actus</a>
+        <a href="#historique">Historique</a>
+        <a href="#setlist">Setlist</a>
+        <a href="/media">Médias</a>
+      </nav>
+
+      <!-- Section EP mise en avant -->
+      <section id="ep">
+        <h2>Écouter l’EP</h2>
+        <div class="ep-hero">
+          <a href={links.bandcamp} target="_blank" rel="noopener" aria-label="Aller sur Bandcamp — Musique de quartiers">
+            <img class="ep-cover" src={coverSrc} alt="Pochette EP « Musique de quartiers » — Les Cavistes" fetchpriority="high" />
+          </a>
+          <div class="ep-cta">
+            <p>Disponible partout. Supportez-nous sur Bandcamp ❤️</p>
+            <div class="btns">
+              <a class="btn" href={links.bandcamp} target="_blank" rel="noopener">Bandcamp</a>
+              <a class="btn" href={links.spotify} target="_blank" rel="noopener">Spotify</a>
+              <a class="btn" href={links.deezer} target="_blank" rel="noopener">Deezer</a>
+              <a class="btn" href={links.apple} target="_blank" rel="noopener">Apple&nbsp;Music</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="grid">
-        <section>
+        <section id="clip">
           <h2>Clip</h2>
           <iframe
             src={links.video}
@@ -190,7 +312,7 @@ const formatDate = (iso) =>
           </iframe>
         </section>
 
-        <section class="bio">
+        <section id="bio" class="bio">
           <h2>Bio</h2>
           <p>Les Cavistes, musique de quartiers.</p>
           <p>Parfois amer, légère ou corsée, leur musique embarquera un public joyeux tout proche d'eux 🎶</p>
@@ -211,7 +333,7 @@ const formatDate = (iso) =>
         <section id="actus">
           <h2>Actus / Dates</h2>
           <ul class="events">
-            {events.map(ev => (
+            {events.map((ev) => (
               <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
                 <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
                 <span class="sep">·</span>
@@ -220,7 +342,7 @@ const formatDate = (iso) =>
                 <span itemprop="location" itemscope itemtype="https://schema.org/Place">
                   <span itemprop="addressLocality">{ev.city}</span>
                 </span>
-                {ev.links?.map(l => (
+                {ev.links?.map((l) => (
                   <>
                     <span class="sep">·</span>
                     <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
@@ -235,22 +357,46 @@ const formatDate = (iso) =>
         <section id="historique">
           <h2>Historique (sélection)</h2>
           <ul class="events">
-            {[...past].sort((a,b) => new Date(b.date) - new Date(a.date)).map(ev => (
-              <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
-                <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+            {[...past]
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .map((ev) => (
+                <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
+                  <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+                  <span class="sep">·</span>
+                  <span itemprop="name">{ev.title}</span>
+                  <span class="sep">·</span>
+                  <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                    <span itemprop="addressLocality">{ev.city}</span>
+                  </span>
+                  {ev.links?.map((l) => (
+                    <>
+                      <span class="sep">·</span>
+                      <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                    </>
+                  ))}
+                  {ev.note && <span class="note"> — {ev.note}</span>}
+                </li>
+              ))}
+          </ul>
+        </section>
+
+        <section id="setlist">
+          <h2>Setlist (dernière)</h2>
+          <ul class="set">
+            {setlist.map((item) => (
+              <li>
+                <span class="title">{item.title}</span>
                 <span class="sep">·</span>
-                <span itemprop="name">{ev.title}</span>
-                <span class="sep">·</span>
-                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-                  <span itemprop="addressLocality">{ev.city}</span>
+                <span class="artist">{item.artist}</span>
+                <span class={"tag " + item.kind}>
+                  {item.kind === "original" ? "Original" : item.kind === "trad" ? "Trad" : "Cover"}
                 </span>
-                {ev.links?.map(l => (
+                {item.refs?.map((r) => (
                   <>
                     <span class="sep">·</span>
-                    <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                    <a class="mini" href={r.url} target="_blank" rel="noopener">{r.label}</a>
                   </>
                 ))}
-                {ev.note && <span class="note"> — {ev.note}</span>}
               </li>
             ))}
           </ul>
@@ -260,6 +406,24 @@ const formatDate = (iso) =>
       <footer>
         © Les Cavistes — Merci d’écouter et de partager.
       </footer>
+
+      <!-- Scrollspy minimal (active la sous-nav au scroll) -->
+      <script is:inline>
+        const navLinks = [...document.querySelectorAll('#subnav a')];
+        const map = new Map(navLinks.map((a) => [a.getAttribute('href').slice(1), a]));
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                navLinks.forEach((l) => l.classList.remove('active'));
+                map.get(e.target.id)?.classList.add('active');
+              }
+            });
+          },
+          { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 },
+        );
+        document.querySelectorAll('section[id]').forEach((s) => obs.observe(s));
+      </script>
     </main>
   </body>
 </html>

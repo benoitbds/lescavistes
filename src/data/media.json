@@ -1,0 +1,92 @@
+[
+  {
+    "date": "2025-09-23",
+    "venue": "Release Party — La Cour du Coin",
+    "city": "Nantes",
+    "links": [
+      { "label": "Instagram", "url": "https://www.instagram.com/lacourducoin/" }
+    ],
+    "photos": [
+      { "src": "/media/2025-09-23-cour-du-coin-01.jpg", "alt": "Release Party Les Cavistes — La Cour du Coin (Nantes), public en fête" },
+      { "src": "/media/2025-09-23-cour-du-coin-02.jpg", "alt": "Les Cavistes sur scène — La Cour du Coin (Nantes)" }
+    ]
+  },
+  {
+    "date": "2025-05-24",
+    "venue": "Fête du Lait de Mai",
+    "city": "Nantes",
+    "links": [
+      { "label": "Site officiel", "url": "https://www.fetedulaitdemai.com/" },
+      { "label": "Infos Métropole", "url": "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" }
+    ],
+    "photos": [
+      { "src": "/media/2025-05-24-lait-de-mai-01.jpg", "alt": "Fête du Lait de Mai — ambiance de la place" },
+      { "src": "/media/2025-05-24-lait-de-mai-02.jpg", "alt": "Les Cavistes en concert — Fête du Lait de Mai (Nantes)" }
+    ]
+  },
+  {
+    "date": "2025-03-06",
+    "venue": "Do It Bar",
+    "city": "Nantes",
+    "links": [
+      { "label": "Instagram", "url": "https://www.instagram.com/doitbar_nantes/" }
+    ],
+    "photos": [
+      { "src": "/media/2025-03-06-doitbar-01.jpg", "alt": "Do It Bar (Nantes) — vue scène" },
+      { "src": "/media/2025-03-06-doitbar-02.jpg", "alt": "Public — Do It Bar (Nantes)" }
+    ]
+  },
+  {
+    "date": "2024-12-06",
+    "venue": "La Motte aux Cochons",
+    "city": "Saint-Hilaire-de-Chaléons",
+    "links": [
+      { "label": "Facebook", "url": "https://www.facebook.com/Motteauxcochons/" }
+    ],
+    "photos": [
+      { "src": "/media/2024-12-06-motte-aux-cochons-01.jpg", "alt": "La Motte aux Cochons — intérieur de la cave" }
+    ]
+  },
+  {
+    "date": "2024-09-29",
+    "venue": "BalaBala",
+    "city": "Redon",
+    "links": [
+      { "label": "Facebook", "url": "https://www.facebook.com/p/Balabala-100086272005102/" }
+    ],
+    "photos": [
+      { "src": "/media/2024-09-29-balabala-01.jpg", "alt": "Concert BalaBala — Redon" }
+    ]
+  },
+  {
+    "date": "2024-09-28",
+    "venue": "Au Bon Muscadet",
+    "city": "Redon",
+    "links": [
+      { "label": "Site", "url": "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }
+    ],
+    "photos": [
+      { "src": "/media/2024-09-28-bon-muscadet-01.jpg", "alt": "Au Bon Muscadet — terrasse et public" }
+    ]
+  },
+  {
+    "date": "2024-03-29",
+    "venue": "Poum Poum T'chak",
+    "city": "Nantes",
+    "links": [
+      { "label": "Instagram", "url": "https://www.instagram.com/poum.poumtchak/" }
+    ],
+    "photos": [
+      { "src": "/media/2024-03-29-poum-poum-tchak-01.jpg", "alt": "Poum Poum T'chak — Nantes — vue de la scène" }
+    ]
+  },
+  {
+    "date": "2023-09-30",
+    "venue": "Live à Redon",
+    "city": "Redon",
+    "links": [],
+    "photos": [
+      { "src": "/media/2023-09-30-redon-01.jpg", "alt": "Les Cavistes en live à Redon" }
+    ]
+  }
+]

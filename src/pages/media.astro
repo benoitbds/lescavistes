@@ -1,0 +1,58 @@
+---
+import media from "../data/media.json";
+
+const sortByDateDesc = (a,b) => new Date(b.date) - new Date(a.date);
+const fmt = (iso) => new Intl.DateTimeFormat("fr-FR", { day:"2-digit", month:"long", year:"numeric" }).format(new Date(iso));
+const items = [...media].sort(sortByDateDesc);
+const title = "Les Cavistes — Médias (galerie concerts)";
+const description = "Photos de concerts avec lieux, dates et liens.";
+---
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <style>
+      :root { --max: 1100px; }
+      html, body { margin:0; padding:0; background:#fff; color:#111; }
+      body { font-family: "Segoe UI Variable Text","Segoe UI",Inter,"Helvetica Neue",Arial,system-ui,-apple-system,"Liberation Sans",sans-serif; font-weight:300; line-height:1.55; }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 40px; }
+      nav { margin-bottom: 16px; }
+      nav a { text-decoration: underline; color:#111; }
+      h1,h2 { font-weight:300; margin: 0 0 12px; }
+      .card { margin: 26px 0; }
+      .meta { opacity:.75; margin-bottom: 8px; }
+      .links a { margin-right: 10px; text-decoration: underline; color:#111; }
+      .grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+      @media (min-width: 900px) { .grid { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+      img { width: 100%; height: auto; border: 1px solid #111; border-radius: 8px; display:block; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <nav><a href="/">← Accueil</a></nav>
+      <h1>Médias</h1>
+      <p class="meta">Photos de nos précédents concerts (lieux, dates & liens).</p>
+
+      {items.map(it => (
+        <article class="card">
+          <h2>{it.venue} — {it.city}</h2>
+          <div class="meta">{fmt(it.date)}</div>
+          {it.links?.length && (
+            <div class="links">
+              {it.links.map(l => <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+            </div>
+          )}
+          {it.photos?.length ? (
+            <div class="grid">
+              {it.photos.map(p => <img src={p.src} alt={p.alt} loading="lazy" />)}
+            </div>
+          ) : (
+            <div class="meta">Aucune photo ajoutée pour l’instant.</div>
+          )}
+        </article>
+      ))}
+    </main>
+  </body>
+</html>
