@@ -13,46 +13,101 @@ const links = {
 const title = "Les Cavistes — Musique de quartiers (Live EP)";
 const description = "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
 
+/** À venir */
 const events = [
   {
     date: "2026-01-16",
     title: "Cave Paul & Joseph — Redon",
     city: "Redon",
-    venueUrl: "https://www.instagram.com/pauletjosephredon/",
-    buyUrl: null
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephredon/" }]
   },
   {
     date: "2026-01-23",
     title: "Cave Paul & Joseph — Savenay",
     city: "Savenay",
-    venueUrl: "https://www.instagram.com/pauletjosephsavenay/",
-    buyUrl: null
+    links: [{ label: "Instagram", url: "https://www.instagram.com/pauletjosephsavenay/" }]
   },
   {
-    // mois seul = on met au 1er en attendant la date précise
+    // mois seul = 1er par défaut, en attendant la date exacte
     date: "2026-03-01",
     title: "Do It Bar — Nantes",
     city: "Nantes",
-    venueUrl: "https://www.facebook.com/p/Do-It-Bar-Nantes-61554562344720/",
-    buyUrl: null
+    links: [
+      { label: "Facebook", url: "https://www.facebook.com/p/Do-It-Bar-Nantes-61554562344720/" },
+      { label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }
+    ],
+    note: "Date exacte en mars à confirmer"
   },
   {
     date: "2026-05-26",
-    title: "Touvoit — Nantes (à confirmer)",
+    title: "Fête du producteur — EARL Philippe Doux (Touvois)",
+    city: "Touvois",
+    links: [{ label: "Facebook (Les Doux Légumes)", url: "https://www.facebook.com/61578303740806/" }]
+  }
+];
+
+/** Historique (sélection) */
+const past = [
+  {
+    date: "2025-09-23",
+    title: "Release Party — La Cour du Coin",
     city: "Nantes",
-    venueUrl: null,
-    buyUrl: null,
-    note: "Lieu exact à préciser"
+    links: [{ label: "Instagram", url: "https://www.instagram.com/lacourducoin/" }]
+  },
+  {
+    date: "2025-05-24",
+    title: "Fête du Lait de Mai",
+    city: "Nantes",
+    links: [
+      { label: "Site officiel", url: "https://www.fetedulaitdemai.com/" },
+      { label: "Infos ville", url: "https://metropole.nantes.fr/actualites/les-folivettes-fetent-le-mois-de-mai" }
+    ]
+  },
+  {
+    date: "2025-03-06",
+    title: "Do It Bar",
+    city: "Nantes",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/doitbar_nantes/" }]
+  },
+  {
+    date: "2024-12-06",
+    title: "La Motte aux Cochons",
+    city: "Saint-Hilaire-de-Chaléons",
+    links: [{ label: "Facebook", url: "https://www.facebook.com/Motteauxcochons/" }]
+  },
+  {
+    date: "2024-09-29",
+    title: "BalaBala",
+    city: "Redon",
+    links: [{ label: "Facebook", url: "https://www.facebook.com/p/Balabala-100086272005102/" }]
+  },
+  {
+    date: "2024-09-28",
+    title: "Au Bon Muscadet",
+    city: "Redon",
+    links: [
+      { label: "Site", url: "https://www.aubonmuscadet.fr/programmation-pass%C3%A9e" }
+    ]
+  },
+  {
+    date: "2024-03-29",
+    title: "Poum Poum T'chak",
+    city: "Nantes",
+    links: [{ label: "Instagram", url: "https://www.instagram.com/poum.poumtchak/" }]
+  },
+  {
+    date: "2023-09-30",
+    title: "Live à Redon",
+    city: "Redon",
+    note: "Lieu à préciser"
   }
 ];
 
 const formatDate = (iso) =>
   new Intl.DateTimeFormat("fr-FR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" })
     .format(new Date(iso));
-
-
-
 ---
+
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -73,6 +128,8 @@ const formatDate = (iso) =>
         line-height: 1.55;
       }
       .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 40px; }
+      .topnav { display:flex; gap:14px; margin: 0 0 16px; }
+      .topnav a { color:#111; text-decoration: underline; }
       header h1 { font-weight: 300; font-size: clamp(28px, 4vw, 44px); margin: 0 0 10px; }
       header p { margin: 0 0 24px; opacity:.8; }
       .btns { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 24px; }
@@ -90,18 +147,24 @@ const formatDate = (iso) =>
       .members { list-style: "— "; padding-left: 1ch; margin: 10px 0 0; }
       footer { margin-top: 36px; opacity:.65; font-size: .95rem; }
       .muted { opacity:.7; }
-#actus { margin-top: 28px; }
-.events { list-style: none; padding: 0; margin: 0; }
-.events li { padding: 10px 0; border-top: 1px solid #1112; }
-.events li:first-child { border-top: 0; }
-.sep { opacity: .5; padding: 0 6px; }
-.mini { font-size: .95rem; text-decoration: underline; }
-.note { opacity: .6; }
 
+      /* Listes d'événements */
+      #actus, #historique { margin-top: 28px; }
+      .events { list-style: none; padding: 0; margin: 0; }
+      .events li { padding: 10px 0; border-top: 1px solid #1112; }
+      .events li:first-child { border-top: 0; }
+      .sep { opacity: .5; padding: 0 6px; }
+      .mini { font-size: .95rem; text-decoration: underline; }
+      .note { opacity: .6; }
     </style>
   </head>
   <body>
     <main class="wrap">
+      <nav class="topnav">
+        <a href="/">Accueil</a>
+        <a href="/media">Médias</a>
+      </nav>
+
       <header>
         <h1>Les Cavistes</h1>
         <p class="muted">Musique de quartiers — Live EP</p>
@@ -144,36 +207,54 @@ const formatDate = (iso) =>
             <a class="btn" href={links.facebook} target="_blank" rel="noopener">Facebook</a>
           </div>
         </section>
-<section id="actus">
-  <h2>Actus / Dates</h2>
-  <ul class="events">
-    {events.map(ev => (
-      <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
-        <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
-        <span class="sep">·</span>
-        <span itemprop="name">{ev.title}</span>
-        <span class="sep">·</span>
-        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
-          <span itemprop="addressLocality">{ev.city}</span>
-        </span>
-        {ev.venueUrl && (
-          <>
-            <span class="sep">·</span>
-            <a class="mini" href={ev.venueUrl} target="_blank" rel="noopener">Lieu (IG/FB)</a>
-          </>
-        )}
-        {ev.buyUrl && (
-          <>
-            <span class="sep">·</span>
-            <a class="mini" href={ev.buyUrl} target="_blank" rel="noopener">Billets</a>
-          </>
-        )}
-        {ev.note && <span class="note"> — {ev.note}</span>}
-      </li>
-    ))}
-  </ul>
-</section>
 
+        <section id="actus">
+          <h2>Actus / Dates</h2>
+          <ul class="events">
+            {events.map(ev => (
+              <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
+                <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+                <span class="sep">·</span>
+                <span itemprop="name">{ev.title}</span>
+                <span class="sep">·</span>
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="addressLocality">{ev.city}</span>
+                </span>
+                {ev.links?.map(l => (
+                  <>
+                    <span class="sep">·</span>
+                    <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                  </>
+                ))}
+                {ev.note && <span class="note"> — {ev.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="historique">
+          <h2>Historique (sélection)</h2>
+          <ul class="events">
+            {[...past].sort((a,b) => new Date(b.date) - new Date(a.date)).map(ev => (
+              <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
+                <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+                <span class="sep">·</span>
+                <span itemprop="name">{ev.title}</span>
+                <span class="sep">·</span>
+                <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                  <span itemprop="addressLocality">{ev.city}</span>
+                </span>
+                {ev.links?.map(l => (
+                  <>
+                    <span class="sep">·</span>
+                    <a class="mini" href={l.url} target="_blank" rel="noopener">{l.label}</a>
+                  </>
+                ))}
+                {ev.note && <span class="note"> — {ev.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
 
       <footer>
