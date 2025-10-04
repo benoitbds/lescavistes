@@ -1,35 +1,106 @@
 ---
 const links = {
-  spotify: "https://open.spotify.com/album/XXXXXXXX",
-  deezer: "https://www.deezer.com/fr/album/XXXXXXXX",
-  youtube: "https://www.youtube-nocookie.com/embed/VIDEO_ID"
+  spotify: "https://open.spotify.com/album/0etaKC2CeyXY2kiISQIglF",
+  deezer: "https://www.deezer.com/album/820007491",
+  apple: "https://geo.music.apple.com/album/musique-de-quartiers-live-ep/1839450803?app=music",
+  tidal: "https://www.tidal.com/album/460068619",
+  ytmusic: "https://music.youtube.com/channel/MPREb_M6dva1XZfsw",
+  bandcamp: "https://lescavistes.bandcamp.com/album/musique-de-quartiers",
+  video: "https://www.youtube-nocookie.com/embed/MJlk_JYmVZI",
+  facebook: "https://www.facebook.com/lescavistespehant",
+  instagram: "https://www.instagram.com/lescavistes.nantes/"
 };
+const title = "Les Cavistes — Musique de quartiers (Live EP)";
+const description = "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
 ---
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Les Cavistes — EP</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light" />
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
     <style>
-      :root { color-scheme: dark; }
-      body { margin:0; font:16px/1.5 system-ui; background:#000; color:#fff; }
-      .wrap { max-width:720px; margin:0 auto; padding:24px; }
-      .btns a { display:inline-block; margin:8px 8px 0 0; padding:10px 14px; border:1px solid #fff; text-decoration:none; color:#fff; }
-      iframe { width:100%; aspect-ratio:16/9; border:0; }
-      footer { opacity:.7; margin-top:24px; font-size:.9rem; }
+      :root { --max: 880px; }
+      html, body { margin:0; padding:0; background:#fff; color:#111; }
+      body {
+        font-family: "Segoe UI Variable Text", "Segoe UI", Inter, "Helvetica Neue",
+                     Arial, system-ui, -apple-system, "Liberation Sans", sans-serif;
+        font-weight: 300; /* rendu light sur Windows */
+        line-height: 1.55;
+      }
+      .wrap { max-width: var(--max); margin: 0 auto; padding: 28px 20px 40px; }
+      header h1 { font-weight: 300; font-size: clamp(28px, 4vw, 44px); margin: 0 0 10px; }
+      header p { margin: 0 0 24px; opacity:.8; }
+      .btns { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 24px; }
+      .btn {
+        border: 1px solid #111; padding: 10px 14px; text-decoration: none; color:#111;
+        display:inline-block; border-radius: 8px; transition: transform .05s ease-in-out;
+      }
+      .btn:hover { transform: translateY(-1px); }
+      .grid { display:grid; grid-template-columns: 1fr; gap: 24px; }
+      @media (min-width:720px) { .grid { grid-template-columns: 1fr 1fr; align-items:start; } }
+      iframe { width:100%; aspect-ratio:16/9; border: 1px solid #111; border-radius: 10px; }
+      section { margin-top: 28px; }
+      h2 { font-weight: 300; margin: 0 0 12px; font-size: clamp(22px, 3vw, 28px); }
+      .bio p { margin: 0 0 10px; }
+      .members { list-style: "— "; padding-left: 1ch; margin: 10px 0 0; }
+      footer { margin-top: 36px; opacity:.65; font-size: .95rem; }
+      .muted { opacity:.7; }
     </style>
   </head>
   <body>
     <main class="wrap">
-      <h1>Les Cavistes — Musique de quartier</h1>
-      <p>Écoute l’EP partout, sans compte obligatoire.</p>
-      <div class="btns">
-        <a href={links.spotify} target="_blank" rel="noopener">Spotify</a>
-        <a href={links.deezer}  target="_blank" rel="noopener">Deezer</a>
+      <header>
+        <h1>Les Cavistes</h1>
+        <p class="muted">Musique de quartiers — Live EP</p>
+        <div class="btns">
+          <a class="btn" href={links.spotify} target="_blank" rel="noopener">Spotify</a>
+          <a class="btn" href={links.deezer} target="_blank" rel="noopener">Deezer</a>
+          <a class="btn" href={links.apple} target="_blank" rel="noopener">Apple&nbsp;Music</a>
+          <a class="btn" href={links.tidal} target="_blank" rel="noopener">Tidal</a>
+          <a class="btn" href={links.ytmusic} target="_blank" rel="noopener">YouTube&nbsp;Music</a>
+          <a class="btn" href={links.bandcamp} target="_blank" rel="noopener">Bandcamp</a>
+        </div>
+      </header>
+
+      <div class="grid">
+        <section>
+          <h2>Clip</h2>
+          <iframe
+            src={links.video}
+            title="Les Cavistes — Clip"
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </section>
+
+        <section class="bio">
+          <h2>Bio</h2>
+          <p>Les Cavistes, musique de quartiers.</p>
+          <p>Parfois amer, légère ou corsée, leur musique embarquera un public joyeux tout proche d'eux 🎶</p>
+          <p>Compositions, musique française et du monde, tubes planétaires ou pépites sonores, il y en aura pour tous les goûts !</p>
+          <p>Même s'ils s'éclatent sur scène, une chose est sûre : ces gars là préfèreraient boire un coup avec vous ! 🍻</p>
+          <ul class="members">
+            <li>Pablo Felez : accordéon diatonique excité et voix survoltée ! 🪗</li>
+            <li>Julien Bachelier : guitariste gaucher et compositeur de talent ! 🎸</li>
+            <li>baq : banjo, voix incisive et challenger des temps ! 🪕</li>
+            <li>Arthur Lecoq : percussions aux impacts de feu ! 🥁</li>
+          </ul>
+          <div class="btns" style="margin-top:16px">
+            <a class="btn" href={links.instagram} target="_blank" rel="noopener">Instagram</a>
+            <a class="btn" href={links.facebook} target="_blank" rel="noopener">Facebook</a>
+          </div>
+        </section>
       </div>
-      <h2>Clip</h2>
-      <iframe src={links.youtube} allow="picture-in-picture; encrypted-media" allowfullscreen></iframe>
-      <footer>© Les Cavistes</footer>
+
+      <footer>
+        © Les Cavistes — Merci d’écouter et de partager.
+      </footer>
     </main>
   </body>
 </html>
