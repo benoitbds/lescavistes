@@ -11,12 +11,11 @@ const links = {
   instagram: "https://www.instagram.com/lescavistes.nantes/",
 };
 
-// Pochette officielle servie par Bandcamp (cover hero)
+// Pochette Bandcamp utilisée en hero
 const coverSrc = "https://f4.bcbits.com/img/a2630947606_10.jpg";
 
 const title = "Les Cavistes — Musique de quartiers (Live EP)";
-const description =
-  "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
+const description = "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
 
 /** À venir */
 const events = [
@@ -104,62 +103,26 @@ const past = [
 /** Setlist (dernière) */
 const setlist = [
   // COVERS
-  {
-    title: "Pas à pas",
-    artist: "Paris Combo",
-    kind: "cover",
-    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=27iRTjabbaw" }],
-  },
-  {
-    title: "Canción del Mariachi (Morena de mi corazón)",
-    artist: "Los Lobos & Antonio Banderas",
-    kind: "cover",
-    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/31JMAIQRX6GsMCdHbx9koh" }],
-  },
-  {
-    title: "Mona Lisa",
-    artist: "Booba feat. JSX",
-    kind: "cover",
-    refs: [{ label: "Paroles", url: "https://www.paroles.net/booba/paroles-mona-lisa" }],
-  },
-  {
-    title: "L'empire du côté obscur",
-    artist: "IAM",
-    kind: "cover",
-    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=aLlCB5G02Ec" }],
-  },
-  {
-    title: "Résidents de la République",
-    artist: "Alain Bashung",
-    kind: "cover",
-    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/2gDJaQEyYz566bsESGoQj2" }],
-  },
-  {
-    title: "Con toda palabra",
-    artist: "Lhasa de Sela",
-    kind: "cover",
-    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/7mbk8uFl3hKKJpnpTD3r55" }],
-  },
-  {
-    title: "Tonton du bled",
-    artist: "113",
-    kind: "cover",
-    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=9U7mG_HU3QM" }],
-  },
-  {
-    title: "Oualalaradime",
-    artist: "Zebda",
-    kind: "cover",
-    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/0kJ3c642QEIm93Gg1fvRVy" }],
-  },
-  {
-    title: "Ma casquette (Tout en buvant…)",
-    artist: "Trad. breton/gallo — tour/andro",
-    kind: "trad",
-    refs: [{ label: "Dastum (notice)", url: "https://raddo-ethnodoc.com/raddo/document/112511" }],
-  },
+  { title: "Pas à pas", artist: "Paris Combo", kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=27iRTjabbaw" }] },
+  { title: "Canción del Mariachi (Morena de mi corazón)", artist: "Los Lobos & Antonio Banderas", kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/31JMAIQRX6GsMCdHbx9koh" }] },
+  { title: "Mona Lisa", artist: "Booba feat. JSX", kind: "cover",
+    refs: [{ label: "Paroles", url: "https://www.paroles.net/booba/paroles-mona-lisa" }] },
+  { title: "L'empire du côté obscur", artist: "IAM", kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=aLlCB5G02Ec" }] },
+  { title: "Résidents de la République", artist: "Alain Bashung", kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/2gDJaQEyYz566bsESGoQj2" }] },
+  { title: "Con toda palabra", artist: "Lhasa de Sela", kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/7mbk8uFl3hKKJpnpTD3r55" }] },
+  { title: "Tonton du bled", artist: "113", kind: "cover",
+    refs: [{ label: "YouTube", url: "https://www.youtube.com/watch?v=9U7mG_HU3QM" }] },
+  { title: "Oualalaradime", artist: "Zebda", kind: "cover",
+    refs: [{ label: "Spotify", url: "https://open.spotify.com/track/0kJ3c642QEIm93Gg1fvRVy" }] },
+  { title: "Ma casquette (Tout en buvant…)", artist: "Trad. breton/gallo — tour/andro", kind: "trad",
+    refs: [{ label: "Dastum (notice)", url: "https://raddo-ethnodoc.com/raddo/document/112511" }] },
 
-  // ORIGINAUX LES CAVISTES
+  // ORIGINAUX
   { title: "Détours", artist: "Les Cavistes", kind: "original" },
   { title: "Chanson conne", artist: "Les Cavistes", kind: "original" },
   { title: "Sabari", artist: "Les Cavistes", kind: "original" },
@@ -188,6 +151,15 @@ const formatDate = (iso) =>
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={coverSrc} />
+
+    <!-- Favicon / manifest (si fichiers placés dans /public) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
     <style>
       :root { --max: 880px; }
       html, body { margin:0; padding:0; background:#fff; color:#111; }
@@ -231,11 +203,14 @@ const formatDate = (iso) =>
       .mini { font-size: .95rem; text-decoration: underline; }
       .note { opacity: .6; }
 
-      /* EP cover */
+      /* EP cover (correctif d'affichage) */
       .ep-hero { display:grid; grid-template-columns: 1fr; gap:18px; }
-      .ep-cover { max-width: 520px; border:1px solid #111; border-radius:10px; }
+      .ep-link { display:block; }                 /* le lien occupe la colonne */
+      .ep-cover { display:block; width:100%; height:auto; max-width:none; border:1px solid #111; border-radius:10px; }
       .ep-cta .btn { margin-right:10px; }
-      @media (min-width:720px){ .ep-hero { grid-template-columns: 360px 1fr; align-items:start; } }
+      @media (min-width:720px){
+        .ep-hero { grid-template-columns: minmax(240px, 360px) 1fr; align-items:start; gap:20px; }
+      }
 
       /* Setlist */
       #setlist { margin-top: 28px; }
@@ -285,7 +260,7 @@ const formatDate = (iso) =>
       <section id="ep">
         <h2>Écouter l’EP</h2>
         <div class="ep-hero">
-          <a href={links.bandcamp} target="_blank" rel="noopener" aria-label="Aller sur Bandcamp — Musique de quartiers">
+          <a class="ep-link" href={links.bandcamp} target="_blank" rel="noopener" aria-label="Aller sur Bandcamp — Musique de quartiers">
             <img class="ep-cover" src={coverSrc} alt="Pochette EP « Musique de quartiers » — Les Cavistes" fetchpriority="high" />
           </a>
           <div class="ep-cta">
