@@ -12,6 +12,47 @@ const links = {
 };
 const title = "Les Cavistes — Musique de quartiers (Live EP)";
 const description = "Écoute l’EP, découvre le clip et nos actus. Musique de quartiers, joyeuse et conviviale.";
+
+---
+const events = [
+  {
+    date: "2026-01-16",
+    title: "Cave Paul & Joseph — Redon",
+    city: "Redon",
+    venueUrl: "https://www.instagram.com/pauletjosephredon/",
+    buyUrl: null
+  },
+  {
+    date: "2026-01-23",
+    title: "Cave Paul & Joseph — Savenay",
+    city: "Savenay",
+    venueUrl: "https://www.instagram.com/pauletjosephsavenay/",
+    buyUrl: null
+  },
+  {
+    // mois seul = on met au 1er en attendant la date précise
+    date: "2026-03-01",
+    title: "Do It Bar — Nantes",
+    city: "Nantes",
+    venueUrl: "https://www.facebook.com/p/Do-It-Bar-Nantes-61554562344720/",
+    buyUrl: null
+  },
+  {
+    date: "2026-05-26",
+    title: "Touvoit — Nantes (à confirmer)",
+    city: "Nantes",
+    venueUrl: null,
+    buyUrl: null,
+    note: "Lieu exact à préciser"
+  }
+];
+
+const formatDate = (iso) =>
+  new Intl.DateTimeFormat("fr-FR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" })
+    .format(new Date(iso));
+---
+
+
 ---
 <html lang="fr">
   <head>
@@ -50,6 +91,14 @@ const description = "Écoute l’EP, découvre le clip et nos actus. Musique de 
       .members { list-style: "— "; padding-left: 1ch; margin: 10px 0 0; }
       footer { margin-top: 36px; opacity:.65; font-size: .95rem; }
       .muted { opacity:.7; }
+#actus { margin-top: 28px; }
+.events { list-style: none; padding: 0; margin: 0; }
+.events li { padding: 10px 0; border-top: 1px solid #1112; }
+.events li:first-child { border-top: 0; }
+.sep { opacity: .5; padding: 0 6px; }
+.mini { font-size: .95rem; text-decoration: underline; }
+.note { opacity: .6; }
+
     </style>
   </head>
   <body>
@@ -96,6 +145,36 @@ const description = "Écoute l’EP, découvre le clip et nos actus. Musique de 
             <a class="btn" href={links.facebook} target="_blank" rel="noopener">Facebook</a>
           </div>
         </section>
+<section id="actus">
+  <h2>Actus / Dates</h2>
+  <ul class="events">
+    {events.map(ev => (
+      <li itemprop="event" itemscope itemtype="https://schema.org/MusicEvent">
+        <time datetime={ev.date} itemprop="startDate">{formatDate(ev.date)}</time>
+        <span class="sep">·</span>
+        <span itemprop="name">{ev.title}</span>
+        <span class="sep">·</span>
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <span itemprop="addressLocality">{ev.city}</span>
+        </span>
+        {ev.venueUrl && (
+          <>
+            <span class="sep">·</span>
+            <a class="mini" href={ev.venueUrl} target="_blank" rel="noopener">Lieu (IG/FB)</a>
+          </>
+        )}
+        {ev.buyUrl && (
+          <>
+            <span class="sep">·</span>
+            <a class="mini" href={ev.buyUrl} target="_blank" rel="noopener">Billets</a>
+          </>
+        )}
+        {ev.note && <span class="note"> — {ev.note}</span>}
+      </li>
+    ))}
+  </ul>
+</section>
+
       </div>
 
       <footer>
