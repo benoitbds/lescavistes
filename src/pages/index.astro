@@ -82,8 +82,10 @@ const setlist = [
   { title: "Sabari", artist: "Les Cavistes", kind: "original" },
   { title: "J’quitte le quartier", artist: "Les Cavistes", kind: "original" },
   { title: "Vuelta al mar", artist: "Les Cavistes", kind: "original" },
-  { title: "Peut mieux faire", artist: "Les Cavistes", kind: "original" }
-];
+  { title: "Peut mieux faire", artist: "Les Cavistes", kind: "original" },
+  { title: "Les promessses de minuit", artist: "Les Cavistes", kind: "original" },
+  { title: "M'sieurs Dames", artist: "Les Cavistes", kind: "original" }
+]
 
 const formatDate = (iso) =>
   new Intl.DateTimeFormat("fr-FR", { weekday:"long", day:"2-digit", month:"long", year:"numeric" })
@@ -239,7 +241,7 @@ const formatDate = (iso) =>
         <section id="bio" class="bio">
           <h2>Bio</h2>
           <p>Les Cavistes, musique de quartiers.</p>
-          <p>Parfois amer, légère ou corsée, leur musique embarquera un public joyeux tout proche d'eux 🎶</p>
+          <p>Parfois amère, légère ou corsée, leur musique embarquera un public joyeux tout proche d'eux 🎶</p>
           <p>Compositions, musique française et du monde, tubes planétaires ou pépites sonores, il y en aura pour tous les goûts !</p>
           <p>Même s'ils s'éclatent sur scène, une chose est sûre : ces gars là préfèreraient boire un coup avec vous ! 🍻</p>
           <ul class="members">
